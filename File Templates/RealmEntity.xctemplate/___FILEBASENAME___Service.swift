@@ -22,18 +22,18 @@ struct ___VARIABLE_entityName___Service: ServiceType {
             #warning("add code to create item and remove this line")
             
             try realm.write {
-                realm.add(task)
+                realm.add(item)
             }
-            return .just(task)
+            return .just(item)
         }
-        return result ?? .error(TaskServiceError.creationFailed)
+        return result ?? .error(ServiceError.creationFailed)
     }
     
     @discardableResult
     func delete(_ item: ___VARIABLE_entityName___) -> Observable<Void> {
         let result = withRealm("deleting") { realm-> Observable<Void> in
             try realm.write {
-                realm.delete(task)
+                realm.delete(item)
             }
             return .empty()
         }
@@ -46,17 +46,16 @@ struct ___VARIABLE_entityName___Service: ServiceType {
             try realm.write {
                 #warning("add code to update item and remove this line")
             }
-            return .just(task)
+            return .just(item)
         }
-        return result ?? .error(TaskServiceError<___VARIABLE_entityName___>.updateFailed(item))
+        return result ?? .error(ServiceError<___VARIABLE_entityName___>.updateFailed(item))
     }
     
-    func list() -> Observable<Results<___VARIABLE_entityName___>> {
-        let result = withRealm("getting") { realm -> Observable<Results<___VARIABLE_entityName___>> in
-            let realm = try Realm()
-            #warning("add predicate or/and remove this line")
-            let items = realm.objects(___VARIABLE_entityName___.self)
-            return Observable.collection(from: items)
+    func list(predicate: NSPredicate? = nil) -> Observable<(AnyRealmCollection<___VARIABLE_entityName___>, RealmChangeset?)> {
+        let result = withRealm("getting") { realm -> Observable<(AnyRealmCollection<___VARIABLE_entityName___>, RealmChangeset?)> in
+            var query = realm.objects(___VARIABLE_entityName___.self)
+            if let predicate = predicate {query = query.filter(predicate)}
+            return Observable.changeset(from: query).share()
         }
         return result ?? .empty()
     }
