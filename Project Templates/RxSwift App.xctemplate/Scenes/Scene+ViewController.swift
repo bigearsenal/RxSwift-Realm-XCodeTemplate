@@ -20,39 +20,18 @@
  * THE SOFTWARE.
  */
 
-import Foundation
-import RxSwift
-import RealmSwift
+import UIKit
 
-enum ServiceError<T: Object>: Error {
-  case creationFailed
-  case updateFailed(T)
-  case deletionFailed(T)
-}
-
-protocol TaskServiceType {
-    associatedtype T: Object
-    
-    @discardableResult
-    func create(_ dict: AnyObject) -> Observable<T>
-    
-    @discardableResult
-    func delete(_ item: T) -> Observable<Void>
-    
-    @discardableResult
-    func update(_ item: T, with dict: AnyObject) -> Observable<T>
-    
-    func list() -> Observable<Results<T>>
-}
-
-extension TaskServiceType {
-    private func withRealm<T>(_ operation: String, action: (Realm) throws -> T) -> T? {
-        do {
-            let realm = try Realm()
-            return try action(realm)
-        } catch let err {
-            print("Failed \(operation) realm with error: \(err)")
-            return nil
-        }
+extension Scene {
+    func viewController() -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        switch self {
+            #warning("add code to create scene here")
+//        case .tasks(let viewModel):
+//            let nc = storyboard.instantiateViewController(withIdentifier: "Tasks") as! UINavigationController
+//            var vc = nc.viewControllers.first as! TasksViewController
+//            vc.bindViewModel(to: viewModel)
+//            return nc
     }
 }
+

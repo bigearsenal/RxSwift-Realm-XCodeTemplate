@@ -35,6 +35,11 @@
 						<string>ViewController.swift:implementation:methods:viewDidLoad:super</string>
 						<string>BindableType.swift</string>
 						<string>ServiceType.swift</string>
+						<string>Scenes/Scene.swift</string>
+						<string>Scenes/Scene+ViewController.swift</string>
+						<string>Scenes/SceneCoordinator.swift</string>
+						<string>Scenes/SceneCoordinatorType.swift</string>
+						<string>Scenes/SceneTransitionType.swift</string>
 					</array>
 				</dict>
 			</dict>
@@ -50,23 +55,68 @@
 			<integer>99</integer>
 		</dict>
 		<key>ServiceType.swift</key>
-	    <dict>
-	        <key>Group</key>
-	        <array>
-	            <string>Services</string>
-	        </array>
-	        <key>Path</key>
-	        <string>ServiceType.swift</string>
-	    </dict>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Services</string>
+			</array>
+			<key>Path</key>
+			<string>ServiceType.swift</string>
+		</dict>
 		<key>BindableType.swift</key>
-	    <dict>
-	        <key>Group</key>
-	        <array>
-	            <string>Models</string>
-	        </array>
-	        <key>Path</key>
-	        <string>BindableType.swift</string>
-	    </dict>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Models</string>
+			</array>
+			<key>Path</key>
+			<string>BindableType.swift</string>
+		</dict>
+		<key>Scene.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Scenes</string>
+			</array>
+			<key>Path</key>
+			<string>Scenes/Scene.swift</string>
+		</dict>
+		<key>Scene+ViewController.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Scenes</string>
+			</array>
+			<key>Path</key>
+			<string>Scenes/Scene+ViewController.swift</string>
+		</dict>
+		<key>SceneCoordinator.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Scenes</string>
+			</array>
+			<key>Path</key>
+			<string>Scenes/SceneCoordinator.swift</string>
+		</dict>
+		<key>SceneCoordinatorType.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Scenes</string>
+			</array>
+			<key>Path</key>
+			<string>Scenes/SceneCoordinatorType.swift</string>
+		</dict>
+		<key>SceneTransitionType.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Scenes</string>
+			</array>
+			<key>Path</key>
+			<string>Scenes/SceneTransitionType.swift</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

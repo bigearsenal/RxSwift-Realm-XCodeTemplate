@@ -20,39 +20,22 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 import RxSwift
-import RealmSwift
 
-enum ServiceError<T: Object>: Error {
-  case creationFailed
-  case updateFailed(T)
-  case deletionFailed(T)
+protocol SceneCoordinatorType {
+  /// transition to another scene
+  @discardableResult
+  func transition(to scene: Scene, type: SceneTransitionType) -> Completable
+
+  /// pop scene from navigation stack or dismiss current modal
+  @discardableResult
+  func pop(animated: Bool) -> Completable
 }
 
-protocol TaskServiceType {
-    associatedtype T: Object
-    
-    @discardableResult
-    func create(_ dict: AnyObject) -> Observable<T>
-    
-    @discardableResult
-    func delete(_ item: T) -> Observable<Void>
-    
-    @discardableResult
-    func update(_ item: T, with dict: AnyObject) -> Observable<T>
-    
-    func list() -> Observable<Results<T>>
-}
-
-extension TaskServiceType {
-    private func withRealm<T>(_ operation: String, action: (Realm) throws -> T) -> T? {
-        do {
-            let realm = try Realm()
-            return try action(realm)
-        } catch let err {
-            print("Failed \(operation) realm with error: \(err)")
-            return nil
-        }
-    }
+extension SceneCoordinatorType {
+  @discardableResult
+  func pop() -> Completable {
+    return pop(animated: true)
+  }
 }
