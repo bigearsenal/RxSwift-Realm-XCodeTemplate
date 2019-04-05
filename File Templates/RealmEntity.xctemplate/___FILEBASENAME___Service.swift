@@ -31,7 +31,7 @@ struct ___VARIABLE_entityName___Service: ServiceType {
     
     @discardableResult
     func delete(_ item: ___VARIABLE_entityName___) -> Observable<Void> {
-        let result = withRealm("deleting") { realm-> Observable<Void> in
+        let result = withRealm("deleting") { realm -> Observable<Void> in
             try realm.write {
                 realm.delete(item)
             }

@@ -44,7 +44,7 @@ protocol ServiceType {
     @discardableResult
     func update(_ item: T, with dict: UnboxableDictionary) -> Observable<T>
     
-    func list(predicate: NSPredicate?) -> Observable<(AnyRealmCollection<Task>, RealmChangeset?)>
+    func list(predicate: NSPredicate?) -> Observable<(AnyRealmCollection<T>, RealmChangeset?)>
 }
 
 extension ServiceType {
