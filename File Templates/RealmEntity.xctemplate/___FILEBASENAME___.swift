@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class ___FILEBASENAME___: Object {
+class ___VARIABLE_entityName___: Object {
     @objc dynamic var id: Int32 = 0
 
     override class func primaryKey() -> String? {

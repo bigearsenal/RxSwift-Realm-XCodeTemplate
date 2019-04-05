@@ -5,11 +5,40 @@
 	<key>DefaultCompletionName</key>
 	<string>Entity</string>
 	<key>Description</key>
-	<string>An Entity with Model and service</string>
+	<string>An RealmEntity with Service implemented</string>
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>Options</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Description</key>
+			<string>The name of the entity</string>
+			<key>Identifier</key>
+			<string>entityName</string>
+			<key>Name</key>
+			<string>EntityName Name:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_entityName:identifier___Service</string>
+			<key>Description</key>
+			<string>The service name</string>
+			<key>Identifier</key>
+			<string>serviceName</string>
+			<key>Name</key>
+			<string>Service Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
 	<key>Platforms</key>
 	<array>
 		<string>com.apple.platform.iphoneos</string>
