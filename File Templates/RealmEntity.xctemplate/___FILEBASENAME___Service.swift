@@ -51,12 +51,11 @@ struct ___VARIABLE_entityName___Service: ServiceType {
         return result ?? .error(TaskServiceError<___VARIABLE_entityName___>.updateFailed(item))
     }
     
-    func list() -> Observable<Results<___VARIABLE_entityName___>> {
-        let result = withRealm("getting") { realm -> Observable<Results<___VARIABLE_entityName___>> in
-            let realm = try Realm()
-            #warning("add predicate or/and remove this line")
-            let items = realm.objects(___VARIABLE_entityName___.self)
-            return Observable.collection(from: items)
+    func list(predicate: NSPredicate? = nil) -> Observable<(AnyRealmCollection<___VARIABLE_entityName___>, RealmChangeset?)> {
+        let result = withRealm("getting") { realm -> Observable<(AnyRealmCollection<___VARIABLE_entityName___>, RealmChangeset?)> in
+            var query = realm.objects(___VARIABLE_entityName___.self)
+            if let predicate = predicate {query = query.filter(predicate)}
+            return Observable.changeset(from: query).share()
         }
         return result ?? .empty()
     }
