@@ -30,7 +30,7 @@ enum ServiceError<T: Object>: Error {
   case deletionFailed(T)
 }
 
-protocol TaskServiceType {
+protocol ServiceType {
     associatedtype T: Object
     
     @discardableResult
@@ -45,7 +45,7 @@ protocol TaskServiceType {
     func list() -> Observable<Results<T>>
 }
 
-extension TaskServiceType {
+extension ServiceType {
     private func withRealm<T>(_ operation: String, action: (Realm) throws -> T) -> T? {
         do {
             let realm = try Realm()
