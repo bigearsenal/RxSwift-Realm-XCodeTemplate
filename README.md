@@ -7,4 +7,5 @@ A template for creating project in xcode with RxSwift + Realm
   pod 'RxCocoa'
   pod 'RealmSwift'
   pod 'RxRealm'
+  pod 'Unbox'
 ```

@@ -10,16 +10,18 @@ import Foundation
 import RealmSwift
 import RxSwift
 import RxRealm
+import Unbox
 
 struct ___VARIABLE_entityName___Service: ServiceType {
     init() {
         // Create service
     }
     @discardableResult
-    func create(_ dict: AnyObject) -> Observable<___VARIABLE_entityName___> {
+    func create(_ dict: UnboxableDictionary) -> Observable<___VARIABLE_entityName___> {
         let result = withRealm("creating") { realm -> Observable<___VARIABLE_entityName___> in
-            let item = ___VARIABLE_entityName___()
-            #warning("add code to create item and remove this line")
+            guard let item = try? ___VARIABLE_entityName___(unboxer: Unboxer(dictionary: dict)) else {
+                return .error(ServiceError.creationFailed)
+            }
             
             try realm.write {
                 realm.add(item)
@@ -41,7 +43,7 @@ struct ___VARIABLE_entityName___Service: ServiceType {
     }
     
     @discardableResult
-    func update(_ item: ___VARIABLE_entityName___, with dict: AnyObject) -> Observable<___VARIABLE_entityName___> {
+    func update(_ item: ___VARIABLE_entityName___, with dict: UnboxableDictionary) -> Observable<___VARIABLE_entityName___> {
         let result = withRealm("updating") { realm -> Observable<___VARIABLE_entityName___> in
             try realm.write {
                 #warning("add code to update item and remove this line")
