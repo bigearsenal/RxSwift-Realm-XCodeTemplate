@@ -46,5 +46,5 @@ protocol TaskServiceType {
     @discardableResult
     func toggle(task: T) -> Observable<T>
     
-    func tasks() -> Observable<Results<T>>
+    func list() -> Observable<Results<T>>
 }
