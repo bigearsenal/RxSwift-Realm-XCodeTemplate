@@ -19,9 +19,7 @@ struct ___VARIABLE_entityName___Service: ServiceType {
     @discardableResult
     func create(_ dict: UnboxableDictionary) -> Observable<___VARIABLE_entityName___> {
         let result = withRealm("creating") { realm -> Observable<___VARIABLE_entityName___> in
-            guard let item = try? ___VARIABLE_entityName___(unboxer: Unboxer(dictionary: dict)) else {
-                return .error(ServiceError.creationFailed)
-            }
+            let item = try ___VARIABLE_entityName___(unboxer: Unboxer(dictionary: dict))
             
             try realm.write {
                 realm.add(item)
@@ -46,7 +44,7 @@ struct ___VARIABLE_entityName___Service: ServiceType {
     func update(_ item: ___VARIABLE_entityName___, with dict: UnboxableDictionary) -> Observable<___VARIABLE_entityName___> {
         let result = withRealm("updating") { realm -> Observable<___VARIABLE_entityName___> in
             try realm.write {
-                #warning("add code to update item and remove this line")
+                dict.keys.forEach {item.setValue(dict[$0], forKey: $0)}
             }
             return .just(item)
         }
