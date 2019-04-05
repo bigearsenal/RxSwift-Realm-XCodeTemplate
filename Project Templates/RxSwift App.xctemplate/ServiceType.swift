@@ -23,6 +23,7 @@
 import Foundation
 import RxSwift
 import RealmSwift
+import RxRealm
 
 enum ServiceError<T: Object>: Error {
   case creationFailed
@@ -42,11 +43,11 @@ protocol ServiceType {
     @discardableResult
     func update(_ item: T, with dict: AnyObject) -> Observable<T>
     
-    func list() -> Observable<Results<T>>
+    func list(predicate: NSPredicate?) -> Observable<(AnyRealmCollection<Task>, RealmChangeset?)>
 }
 
 extension ServiceType {
-    private func withRealm<T>(_ operation: String, action: (Realm) throws -> T) -> T? {
+    internal func withRealm<T>(_ operation: String, action: (Realm) throws -> T) -> T? {
         do {
             let realm = try Realm()
             return try action(realm)

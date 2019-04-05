@@ -22,18 +22,18 @@ struct ___VARIABLE_entityName___Service: ServiceType {
             #warning("add code to create item and remove this line")
             
             try realm.write {
-                realm.add(task)
+                realm.add(item)
             }
-            return .just(task)
+            return .just(item)
         }
-        return result ?? .error(TaskServiceError.creationFailed)
+        return result ?? .error(ServiceError.creationFailed)
     }
     
     @discardableResult
     func delete(_ item: ___VARIABLE_entityName___) -> Observable<Void> {
         let result = withRealm("deleting") { realm-> Observable<Void> in
             try realm.write {
-                realm.delete(task)
+                realm.delete(item)
             }
             return .empty()
         }
@@ -46,9 +46,9 @@ struct ___VARIABLE_entityName___Service: ServiceType {
             try realm.write {
                 #warning("add code to update item and remove this line")
             }
-            return .just(task)
+            return .just(item)
         }
-        return result ?? .error(TaskServiceError<___VARIABLE_entityName___>.updateFailed(item))
+        return result ?? .error(ServiceError<___VARIABLE_entityName___>.updateFailed(item))
     }
     
     func list(predicate: NSPredicate? = nil) -> Observable<(AnyRealmCollection<___VARIABLE_entityName___>, RealmChangeset?)> {

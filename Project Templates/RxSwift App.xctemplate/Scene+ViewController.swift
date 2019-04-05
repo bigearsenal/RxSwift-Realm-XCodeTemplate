@@ -32,6 +32,7 @@ extension Scene {
 //            var vc = nc.viewControllers.first as! TasksViewController
 //            vc.bindViewModel(to: viewModel)
 //            return nc
+        }
     }
 }
 
