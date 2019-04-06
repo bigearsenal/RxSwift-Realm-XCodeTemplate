@@ -42,6 +42,7 @@
 						<string>Scenes/SceneTransitionType.swift</string>
 						<string>Extensions/UINavigationController+Rx.swift</string>
 						<string>../Podfile</string>
+						<string>API/ItemsFetcher.swift</string>
 					</array>
 				</dict>
 			</dict>
@@ -132,6 +133,15 @@
 			</array>
 			<key>Path</key>
 			<string>Extensions/UINavigationController+Rx.swift</string>
+		</dict>
+		<key>API/ItemsFetcher</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>API</string>
+			</array>
+			<key>Path</key>
+			<string>API/ItemsFetcher.swift</string>
 		</dict>
 	</dict>
 </dict>

@@ -10,6 +10,8 @@ target '___PROJECTNAME___' do
 	pod 'RealmSwift'
 	pod 'RxRealm'
 	pod 'Unbox'
+	pod 'Action'
+	pod 'Alamofire'
 
 	# target '___PROJECTNAME___Tests' do
     	# inherit! :search_paths
