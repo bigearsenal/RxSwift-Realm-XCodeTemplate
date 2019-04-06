@@ -43,6 +43,7 @@
 						<string>Extensions/UINavigationController+Rx.swift</string>
 						<string>../Podfile</string>
 						<string>API/ItemsFetcher.swift</string>
+						<string>Controllers/ItemsViewModel.swift</string>
 					</array>
 				</dict>
 			</dict>
@@ -79,6 +80,15 @@
 			</array>
 			<key>Path</key>
 			<string>Controllers/BindableType.swift</string>
+		</dict>
+		<key>Controllers/ItemsViewModel.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Controllers</string>
+			</array>
+			<key>Path</key>
+			<string>Controllers/ItemsViewModel.swift</string>
 		</dict>
 		<key>Scenes/Scene.swift</key>
 		<dict>
