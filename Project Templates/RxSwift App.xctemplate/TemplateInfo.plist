@@ -33,13 +33,14 @@
 						<string>ViewController.swift:implementation(___FILEBASENAME___: UIViewController)</string>
 						<string>ViewController.swift:implementation:methods:viewDidLoad(override func viewDidLoad(\))</string>
 						<string>ViewController.swift:implementation:methods:viewDidLoad:super</string>
-						<string>BindableType.swift</string>
-						<string>ServiceType.swift</string>
-						<string>Scene.swift</string>
-						<string>Scene+ViewController.swift</string>
-						<string>SceneCoordinator.swift</string>
-						<string>SceneCoordinatorType.swift</string>
-						<string>SceneTransitionType.swift</string>
+						<string>Controllers/BindableType.swift</string>
+						<string>Services/ServiceType.swift</string>
+						<string>Scenes/Scene.swift</string>
+						<string>Scenes/Scene+ViewController.swift</string>
+						<string>Scenes/SceneCoordinator.swift</string>
+						<string>Scenes/SceneCoordinatorType.swift</string>
+						<string>Scenes/SceneTransitionType.swift</string>
+						<string>Extensions/UINavigationController+Rx.swift</string>
 					</array>
 				</dict>
 			</dict>
@@ -54,68 +55,77 @@
 			<key>SortOrder</key>
 			<integer>99</integer>
 		</dict>
-		<key>ServiceType.swift</key>
+		<key>Services/ServiceType.swift</key>
 		<dict>
 			<key>Group</key>
 			<array>
 				<string>Services</string>
 			</array>
 			<key>Path</key>
-			<string>ServiceType.swift</string>
+			<string>Services/ServiceType.swift</string>
 		</dict>
-		<key>BindableType.swift</key>
+		<key>Controllers/BindableType.swift</key>
 		<dict>
 			<key>Group</key>
 			<array>
-				<string>Models</string>
+				<string>Controllers</string>
 			</array>
 			<key>Path</key>
-			<string>BindableType.swift</string>
+			<string>Controllers/BindableType.swift</string>
 		</dict>
-		<key>Scene.swift</key>
-		<dict>
-			<key>Group</key>
-			<array>
-				<string>Scenes</string>
-			</array>
-			<key>Path</key>
-			<string>Scene.swift</string>
-		</dict>
-		<key>Scene+ViewController.swift</key>
+		<key>Scenes/Scene.swift</key>
 		<dict>
 			<key>Group</key>
 			<array>
 				<string>Scenes</string>
 			</array>
 			<key>Path</key>
-			<string>Scene+ViewController.swift</string>
+			<string>Scenes/Scene.swift</string>
 		</dict>
-		<key>SceneCoordinator.swift</key>
+		<key>Scenes/Scene+ViewController.swift</key>
 		<dict>
 			<key>Group</key>
 			<array>
 				<string>Scenes</string>
 			</array>
 			<key>Path</key>
-			<string>SceneCoordinator.swift</string>
+			<string>Scenes/Scene+ViewController.swift</string>
 		</dict>
-		<key>SceneCoordinatorType.swift</key>
+		<key>Scenes/SceneCoordinator.swift</key>
 		<dict>
 			<key>Group</key>
 			<array>
 				<string>Scenes</string>
 			</array>
 			<key>Path</key>
-			<string>SceneCoordinatorType.swift</string>
+			<string>Scenes/SceneCoordinator.swift</string>
 		</dict>
-		<key>SceneTransitionType.swift</key>
+		<key>Scenes/SceneCoordinatorType.swift</key>
 		<dict>
 			<key>Group</key>
 			<array>
 				<string>Scenes</string>
 			</array>
 			<key>Path</key>
-			<string>SceneTransitionType.swift</string>
+			<string>Scenes/SceneCoordinatorType.swift</string>
+		</dict>
+		<key>Scenes/SceneTransitionType.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Scenes</string>
+			</array>
+			<key>Path</key>
+			<string>Scenes/SceneTransitionType.swift</string>
+		</dict>
+		<key>Extensions/UINavigationController+Rx.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Extensions</string>
+			</array>
+			<key>Path</key>
+			<string>Extensions/UINavigationController+Rx.swift</string>
 		</dict>
 	</dict>
 </dict>
