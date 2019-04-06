@@ -41,6 +41,7 @@
 						<string>Scenes/SceneCoordinatorType.swift</string>
 						<string>Scenes/SceneTransitionType.swift</string>
 						<string>Extensions/UINavigationController+Rx.swift</string>
+						<string>../Podfile</string>
 					</array>
 				</dict>
 			</dict>
@@ -48,6 +49,11 @@
 	</array>
 	<key>Definitions</key>
 	<dict>
+		<key>../Podfile</key>
+		<dict>
+			<key>Path</key>
+			<string>Podfile</string>
+		</dict>
 		<key>Base.lproj/Main.storyboard</key>
 		<dict>
 			<key>Path</key>
