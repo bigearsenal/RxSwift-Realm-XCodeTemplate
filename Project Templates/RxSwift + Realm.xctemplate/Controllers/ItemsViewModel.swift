@@ -13,9 +13,7 @@ import RxSwift
 import RxRealm
 import RxCocoa
 
-import Unbox
-
-class ItemsViewModel<T> where T: Object, T: Unboxable {
+class ItemsViewModel<T> where T: Object {
     internal let bag = DisposeBag()
     let fetcher: ItemsFetcher<T>
     
