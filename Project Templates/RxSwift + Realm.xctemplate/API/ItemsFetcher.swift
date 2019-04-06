@@ -10,7 +10,9 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ItemsFetcher<T> {
+import Unbox
+
+class ItemsFetcher<T> where T: Unboxable {
     enum FetcherError: Error {
         case createRequestFailed, requestFailed, canceled, requestDupplicated
     }
