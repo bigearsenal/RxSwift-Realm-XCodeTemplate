@@ -42,8 +42,11 @@
 						<string>Scenes/SceneTransitionType.swift</string>
 						<string>Extensions/UINavigationController+Rx.swift</string>
 						<string>../Podfile</string>
-						<string>API/ItemsFetcher.swift</string>
-						<string>Controllers/ItemsViewModel.swift</string>
+						<string>ItemsHelper/ItemsFetcher.swift</string>
+						<string>ItemsHelper/ItemsViewModel.swift</string>
+						<string>ItemsHelper/ItemsViewController.swift</string>
+						<string>ItemsHelper/ItemsTableViewController.swift</string>
+						<string>ItemsHelper/ItemsCollectionViewController.swift</string>
 					</array>
 				</dict>
 			</dict>
@@ -80,15 +83,6 @@
 			</array>
 			<key>Path</key>
 			<string>Controllers/BindableType.swift</string>
-		</dict>
-		<key>Controllers/ItemsViewModel.swift</key>
-		<dict>
-			<key>Group</key>
-			<array>
-				<string>Controllers</string>
-			</array>
-			<key>Path</key>
-			<string>Controllers/ItemsViewModel.swift</string>
 		</dict>
 		<key>Scenes/Scene.swift</key>
 		<dict>
@@ -144,14 +138,50 @@
 			<key>Path</key>
 			<string>Extensions/UINavigationController+Rx.swift</string>
 		</dict>
-		<key>API/ItemsFetcher</key>
+		<key>ItemsHelper/ItemsFetcher</key>
 		<dict>
 			<key>Group</key>
 			<array>
-				<string>API</string>
+				<string>ItemsHelper</string>
 			</array>
 			<key>Path</key>
-			<string>API/ItemsFetcher.swift</string>
+			<string>ItemsHelper/ItemsFetcher.swift</string>
+		</dict>
+		<key>ItemsHelper/ItemsViewModel.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>ItemsHelper</string>
+			</array>
+			<key>Path</key>
+			<string>ItemsHelper/ItemsViewModel.swift</string>
+		</dict>
+		<key>ItemsHelper/ItemsViewController.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>ItemsHelper</string>
+			</array>
+			<key>Path</key>
+			<string>ItemsHelper/ItemsViewController.swift</string>
+		</dict>
+		<key>ItemsHelper/ItemsTableViewController.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>ItemsHelper</string>
+			</array>
+			<key>Path</key>
+			<string>ItemsHelper/ItemsTableViewController.swift</string>
+		</dict>
+		<key>ItemsHelper/ItemsCollectionViewController.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>ItemsHelper</string>
+			</array>
+			<key>Path</key>
+			<string>ItemsHelper/ItemsCollectionViewController.swift</string>
 		</dict>
 	</dict>
 </dict>
