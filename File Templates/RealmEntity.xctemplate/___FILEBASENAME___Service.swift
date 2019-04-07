@@ -51,11 +51,11 @@ struct ___VARIABLE_entityName___Service: ServiceType {
         return result ?? .error(ServiceError<___VARIABLE_entityName___>.updateFailed(item))
     }
     
-    func list(predicate: NSPredicate? = nil) -> Observable<(AnyRealmCollection<___VARIABLE_entityName___>, RealmChangeset?)> {
-        let result = withRealm("getting") { realm -> Observable<(AnyRealmCollection<___VARIABLE_entityName___>, RealmChangeset?)> in
+    func list(predicate: NSPredicate? = nil) -> Observable<Results<___VARIABLE_entityName___>> {
+        let result = withRealm("getting") { realm -> Observable<Results<___VARIABLE_entityName___>> in
             var query = realm.objects(___VARIABLE_entityName___.self)
             if let predicate = predicate {query = query.filter(predicate)}
-            return Observable.changeset(from: query).share()
+            return Observable.collection(from: query)
         }
         return result ?? .empty()
     }
