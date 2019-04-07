@@ -11,7 +11,7 @@ import RealmSwift
 import Unbox
 import RxRealmDataSources
 
-class ItemsCollectionViewController<T>: ItemsListViewController<T> where T: Object, T: Unboxable {
+class ItemsCollectionViewController<T>: ItemsViewController<T> where T: Object, T: Unboxable {
     
     var dataSource: RxCollectionViewRealmDataSource<T>! {
         return nil

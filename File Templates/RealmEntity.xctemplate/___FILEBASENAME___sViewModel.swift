@@ -11,7 +11,7 @@ import RxSwift
 import Action
 import Unbox
 
-struct ___VARIABLE_entityName___sViewModel: ItemsViewModel<___VARIABLE_entityName___> {
+class ___VARIABLE_entityName___sViewModel: ItemsViewModel<___VARIABLE_entityName___> {
     let sceneCoordinator: SceneCoordinatorType
     let service: ___VARIABLE_entityName___Service
     
