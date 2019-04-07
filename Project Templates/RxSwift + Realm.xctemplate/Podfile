@@ -12,6 +12,8 @@ target '___PROJECTNAME___' do
 	pod 'Unbox'
 	pod 'Action'
 	pod 'Alamofire'
+	pod 'RxRealmDataSources'
+	pod 'JGProgressHUD'
 
 	# target '___PROJECTNAME___Tests' do
     	# inherit! :search_paths
