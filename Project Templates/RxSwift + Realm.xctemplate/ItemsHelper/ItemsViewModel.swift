@@ -12,36 +12,23 @@ import RealmSwift
 import RxSwift
 import RxRealm
 import RxCocoa
+import RxDataSources
 
 import Unbox
 
-class ItemsViewModel<T> where T: Object, T: Unboxable {
+class ItemsViewModel<T> where T: Object, T: IdentifiableType {
+    
     internal let bag = DisposeBag()
     let fetcher: ItemsFetcher<T>
     
-    private(set) var items: Observable<(AnyRealmCollection<T>, RealmChangeset?)>!
-    var realm: Realm?
-    
-    private var predicate: NSPredicate?
-    
-    init(router: String, predicate: NSPredicate? = nil) {
-        self.predicate = predicate
-        
-        fetcher = ItemsFetcher<T>(router: router)
-        
-        // fetch and store
-        bindOutput()
+    var sectionedItems: Observable<[AnimatableSectionModel<String, T>]>! {
+        return nil
     }
     
-    // MARK: - Methods
-    private func bindOutput() {
-        //bind posts
-        guard let realm = try? Realm() else {
-            return
-        }
-        var query = realm.objects(T.self)
-        if let predicate = predicate {query = query.filter(predicate)}
-        items = Observable.changeset(from: query).share()
+    var realm: Realm?
+    
+    init(router: String) {
+        fetcher = ItemsFetcher<T>(router: router)
     }
     
     internal func save(_ newItems: [T]) {

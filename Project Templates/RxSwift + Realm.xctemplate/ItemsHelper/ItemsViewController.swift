@@ -11,16 +11,9 @@ import RealmSwift
 import Unbox
 import RxSwift
 import JGProgressHUD
+import RxDataSources
 
-class ItemsViewController<T>: UIViewController where T: Object, T: Unboxable {
-    // For inheritance
-    var router: String! {
-        return nil
-    }
-    
-    var predicate: NSPredicate? {
-        return nil
-    }
+class ItemsViewController<T>: UIViewController, BindableType where T: Object, T: IdentifiableType {
     
     var viewModel: ItemsViewModel<T>!
     
@@ -28,22 +21,7 @@ class ItemsViewController<T>: UIViewController where T: Object, T: Unboxable {
     internal let bag = DisposeBag()
 
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        createViewModel()
-        bindUI()
-    }
-    
-    func createViewModel() {
-        guard let router = router else {
-            fatalError("router must be defined")
-        }
-        viewModel = ItemsViewModel<T>(router: router, predicate: predicate)
-    }
-    
-    func bindUI() {
+    func bindViewModel() {
         // for inheritting
     }
     
@@ -74,16 +52,4 @@ class ItemsViewController<T>: UIViewController where T: Object, T: Unboxable {
     func endRefreshing() {
         // for inheriting
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -12,7 +12,7 @@ import Unbox
 
 class ___VARIABLE_entityName___: Object, Unboxable {
     // MARK: - Object
-    @objc dynamic var id: Int32 = 0
+    @objc dynamic var id: Int = 0
 
     override class func primaryKey() -> String? {
         return "id"
@@ -22,5 +22,11 @@ class ___VARIABLE_entityName___: Object, Unboxable {
     convenience required init(unboxer: Unboxer) throws {
         self.init()
         #warning("Implement init with unboxer and remove this line")
+    }
+}
+
+extension ___VARIABLE_entityName___: IdentifiableType {
+    var identity: Int {
+        return self.isInvalidated ? 0 : id
     }
 }

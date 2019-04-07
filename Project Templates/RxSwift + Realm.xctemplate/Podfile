@@ -12,7 +12,7 @@ target '___PROJECTNAME___' do
 	pod 'Unbox'
 	pod 'Action'
 	pod 'Alamofire'
-	pod 'RxRealmDataSources'
+	pod 'RxDataSources'
 	pod 'JGProgressHUD'
 
 	# target '___PROJECTNAME___Tests' do

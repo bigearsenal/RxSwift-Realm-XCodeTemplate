@@ -8,37 +8,18 @@
 
 import UIKit
 import RealmSwift
-import Unbox
-import RxRealmDataSources
+import RxDataSources
 
-class ItemsTableViewController<T>: ItemsViewController<T> where T: Object, T: Unboxable {
-    
-    var dataSource: RxTableViewRealmDataSource<T>! {
-        return nil
-    }
+class ItemsTableViewController<T>: ItemsViewController<T> where T: Object, T: IdentifiableType {
     
     @IBOutlet weak var tableView: UITableView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-//        tableView.estimatedRowHeight = 145
-        tableView.rowHeight = UITableView.automaticDimension
-    }
     
-    override func bindUI() {
-        super.bindUI()
-        
-        // bind refreshControll to collectionView
+    override func bindViewModel() {
+        // bind refreshControll to tableView
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.refreshControl = refreshControl
         
-        // bind viewModel
-        viewModel.items
-            .bind(to: tableView.rx.realmChanges(dataSource))
-            .disposed(by: bag)
         
         // fetchNext when reach last 20 point to the bottom
         tableView.rx.contentOffset
@@ -53,16 +34,4 @@ class ItemsTableViewController<T>: ItemsViewController<T> where T: Object, T: Un
     override func endRefreshing() {
         tableView.refreshControl?.endRefreshing()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

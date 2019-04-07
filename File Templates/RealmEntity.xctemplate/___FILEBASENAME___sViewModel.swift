@@ -11,14 +11,37 @@ import RxSwift
 import Action
 import Unbox
 
+typealias ___VARIABLE_entityName___Section = AnimatableSectionModel<String, ___VARIABLE_entityName___>
+
 class ___VARIABLE_entityName___sViewModel: ItemsViewModel<___VARIABLE_entityName___> {
     let sceneCoordinator: SceneCoordinatorType
     let service: ___VARIABLE_entityName___Service
+    let predicate: NSPredicate?
     
     required init(router: String, predicate: NSPredicate? = nil, sceneCoordinator: SceneCoordinator, service: ___VARIABLE_entityName___Service) {
         self.sceneCoordinator = sceneCoordinator
         self.service = service
-        super.init(router: router, predicate: predicate)
+        self.predicate = predicate
+        super.init(router: router)
+    }
+    
+    override var sectionedItems: Observable<[___VARIABLE_entityName___Section]>! {
+        return self.service.list(predicate: predicate)
+            .map { results in
+                #warning("configure sections")
+//                let dueTasks = results
+//                    .filter("checked == nil")
+//                    .sorted(byKeyPath: "added", ascending: false)
+//
+//                let doneTasks = results
+//                    .filter("checked != nil")
+//                    .sorted(byKeyPath: "checked", ascending: false)
+//
+//                return [
+//                    ___VARIABLE_entityName___Section(model: "Due Tasks", items: dueTasks.toArray()),
+//                    ___VARIABLE_entityName___Section(model: "Done Tasks", items: doneTasks.toArray())
+//                ]
+        }
     }
     
     func onCreate() -> CocoaAction {

@@ -8,14 +8,9 @@
 
 import UIKit
 import RealmSwift
-import Unbox
-import RxRealmDataSources
+import RxDataSources
 
-class ItemsCollectionViewController<T>: ItemsViewController<T> where T: Object, T: Unboxable {
-    
-    var dataSource: RxCollectionViewRealmDataSource<T>! {
-        return nil
-    }
+class ItemsCollectionViewController<T>: ItemsViewController<T> where T: Object, T: IdentifiableType {
     
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -27,8 +22,8 @@ class ItemsCollectionViewController<T>: ItemsViewController<T> where T: Object, 
         collectionView.collectionViewLayout = layoutForCollectionView()
     }
     
-    override func bindUI() {
-        super.bindUI()
+    override func bindViewModel() {
+        super.bindViewModel()
         // device rotation
         NotificationCenter.default.rx.notification(Notification.Name("UIDeviceOrientationDidChangeNotification"))
             .subscribe(onNext: { [weak self] (_) in
@@ -41,11 +36,6 @@ class ItemsCollectionViewController<T>: ItemsViewController<T> where T: Object, 
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         collectionView.refreshControl = refreshControl
-        
-        // bind viewModel
-        viewModel.items
-            .bind(to: collectionView.rx.realmChanges(dataSource))
-            .disposed(by: bag)
         
         // fetchNext when reach last 20 point to the bottom
         collectionView.rx.contentOffset
