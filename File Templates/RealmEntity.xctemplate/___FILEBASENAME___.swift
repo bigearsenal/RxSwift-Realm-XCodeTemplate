@@ -9,8 +9,9 @@
 import Foundation
 import RealmSwift
 import Unbox
+import RxDataSources
 
-class ___VARIABLE_entityName___: Object, Unboxable {
+final class ___VARIABLE_entityName___: Object, Unboxable, Mockable {
     // MARK: - Object
     @objc dynamic var id: Int = 0
 
@@ -22,6 +23,12 @@ class ___VARIABLE_entityName___: Object, Unboxable {
     convenience required init(unboxer: Unboxer) throws {
         self.init()
         #warning("Implement init with unboxer and remove this line")
+    }
+    
+    // MARK: - Mockobject
+    static func mockingObjects() -> [___VARIABLE_entityName___] {
+        #warning("Add mocking objects here")
+        return [___VARIABLE_entityName___]()
     }
 }
 

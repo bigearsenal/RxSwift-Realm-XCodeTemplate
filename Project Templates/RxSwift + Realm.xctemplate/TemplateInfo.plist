@@ -47,6 +47,7 @@
 						<string>ItemsHelper/ItemsViewController.swift</string>
 						<string>ItemsHelper/ItemsTableViewController.swift</string>
 						<string>ItemsHelper/ItemsCollectionViewController.swift</string>
+						<string>Models/Mockable.swift</string>
 					</array>
 				</dict>
 			</dict>
@@ -182,6 +183,15 @@
 			</array>
 			<key>Path</key>
 			<string>ItemsHelper/ItemsCollectionViewController.swift</string>
+		</dict>
+		<key>Models/Mockable.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Models</string>
+			</array>
+			<key>Path</key>
+			<string>Models/Mockable.swift</string>
 		</dict>
 	</dict>
 </dict>

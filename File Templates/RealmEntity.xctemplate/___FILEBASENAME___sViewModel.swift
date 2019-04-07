@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import Action
 import Unbox
+import RxDataSources
 
 typealias ___VARIABLE_entityName___Section = AnimatableSectionModel<String, ___VARIABLE_entityName___>
 
