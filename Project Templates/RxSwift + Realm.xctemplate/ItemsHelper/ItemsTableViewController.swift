@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import RxDataSources
 
-class ItemsTableViewController<T>: ItemsViewController<T> where T: Object, T: IdentifiableType {
+class ItemsTableViewController<T>: ItemsViewController<T> where T: Object, T: IdentifiableType, T: Mockable {
     
     @IBOutlet weak var tableView: UITableView!
     

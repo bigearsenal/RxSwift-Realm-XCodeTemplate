@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Mockable {
-    static func mockingObjects() -> [Self]
+    static func createMockingObjects()
 }

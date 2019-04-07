@@ -11,7 +11,7 @@ import RealmSwift
 import Unbox
 import RxDataSources
 
-final class ___VARIABLE_entityName___: Object, Unboxable, Mockable {
+class ___VARIABLE_entityName___: Object, Unboxable, Mockable {
     // MARK: - Object
     @objc dynamic var id: Int = 0
 
@@ -26,9 +26,8 @@ final class ___VARIABLE_entityName___: Object, Unboxable, Mockable {
     }
     
     // MARK: - Mockobject
-    static func mockingObjects() -> [___VARIABLE_entityName___] {
+    static func createMockingObjects() {
         #warning("Add mocking objects here")
-        return [___VARIABLE_entityName___]()
     }
 }
 

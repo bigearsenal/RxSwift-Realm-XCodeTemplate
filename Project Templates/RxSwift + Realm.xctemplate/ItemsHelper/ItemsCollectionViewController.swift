@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import RxDataSources
 
-class ItemsCollectionViewController<T>: ItemsViewController<T> where T: Object, T: IdentifiableType {
+class ItemsCollectionViewController<T>: ItemsViewController<T> where T: Object, T: IdentifiableType, T: Mockable {
     
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {

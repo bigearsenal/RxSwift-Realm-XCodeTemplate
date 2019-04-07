@@ -13,7 +13,7 @@ import RxSwift
 import JGProgressHUD
 import RxDataSources
 
-class ItemsViewController<T>: UIViewController, BindableType where T: Object, T: IdentifiableType {
+class ItemsViewController<T>: UIViewController, BindableType where T: Object, T: IdentifiableType, T: Mockable {
     
     var viewModel: ItemsViewModel<T>!
     

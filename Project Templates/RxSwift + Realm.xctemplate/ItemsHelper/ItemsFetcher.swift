@@ -12,7 +12,7 @@ import RxCocoa
 
 import Unbox
 
-class ItemsFetcher<T> where T: Unboxable {
+class ItemsFetcher<T> where T: Unboxable, T: Mockable {
     enum FetcherError: Error {
         case createRequestFailed, requestFailed, canceled, requestDupplicated
     }
@@ -49,9 +49,9 @@ class ItemsFetcher<T> where T: Unboxable {
         
         // for testing, add mock objects
         if mock == true {
-            #warning("Add mock objects")
             self.isFetching = false
             self.reachedTheEnd = true
+            T.createMockingObjects()
             return Single.just([T]())
         }
         

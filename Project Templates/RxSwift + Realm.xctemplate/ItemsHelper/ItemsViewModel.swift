@@ -16,7 +16,7 @@ import RxDataSources
 
 import Unbox
 
-class ItemsViewModel<T> where T: Object, T: IdentifiableType {
+class ItemsViewModel<T> where T: Object, T: IdentifiableType, T: Mockable {
     
     internal let bag = DisposeBag()
     let fetcher: ItemsFetcher<T>
