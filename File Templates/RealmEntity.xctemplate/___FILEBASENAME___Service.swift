@@ -22,7 +22,7 @@ struct ___VARIABLE_entityName___Service: ServiceType {
             let item = try ___VARIABLE_entityName___(unboxer: Unboxer(dictionary: dict))
             
             try realm.write {
-                realm.add(item)
+                realm.add(item, update: true)
             }
             return .just(item)
         }
