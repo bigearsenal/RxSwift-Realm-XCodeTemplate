@@ -138,7 +138,7 @@
 			<key>Path</key>
 			<string>Extensions/UINavigationController+Rx.swift</string>
 		</dict>
-		<key>ItemsHelper/ItemsFetcher</key>
+		<key>ItemsHelper/ItemsFetcher.swift</key>
 		<dict>
 			<key>Group</key>
 			<array>
