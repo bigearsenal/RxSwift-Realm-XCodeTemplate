@@ -31,15 +31,16 @@ class ItemsViewController<T>: UIViewController, BindableType where T: Object, T:
                 onCompleted: {
                     self.endRefreshing()
                 },
-                onError: { [weak self] _ in
+                onError: { [weak self] error in
                     self?.endRefreshing()
-                    guard let self = self else {return}
-                    let hud = JGProgressHUD(style: .dark)
-                    hud.textLabel.text = "Can not retrieve items.\nPlease check your internet connection"
-                    hud.indicatorView = JGProgressHUDErrorIndicatorView()
-                    hud.isUserInteractionEnabled = true
-                    hud.show(in: self.view)
-                    hud.dismiss(afterDelay: 3)
+                    print(error)
+//                    guard let self = self else {return}
+//                    let hud = JGProgressHUD(style: .dark)
+//                    hud.textLabel.text = "Can not retrieve items.\nPlease check your internet connection"
+//                    hud.indicatorView = JGProgressHUDErrorIndicatorView()
+//                    hud.isUserInteractionEnabled = true
+//                    hud.show(in: self.view)
+//                    hud.dismiss(afterDelay: 3)
             })
             .disposed(by: self.bag)
     }

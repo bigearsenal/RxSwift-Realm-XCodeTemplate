@@ -31,6 +31,11 @@ extension Scene {
             var vc = nc.viewControllers.first as! TasksTableViewController
             vc.bindViewModel(to: viewModel)
             return nc
+        case .editTask(let viewModel):
+            let nc = storyboard.instantiateViewController(withIdentifier: "EditTask") as! UINavigationController
+            var vc = nc.viewControllers.first as! EditTaskViewController
+            vc.bindViewModel(to: viewModel)
+            return nc
         }
     }
 }

@@ -30,6 +30,8 @@ class TasksTableViewController: ItemsTableViewController<Task> {
         viewModel.sectionedItems
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
+        
+        newTaskButton.rx.action = (viewModel as! TasksViewModel).onCreate()
     }
     
     fileprivate func configureDataSource() {

@@ -25,6 +25,9 @@ struct TaskService: ServiceType {
             let item = Task()
             dict.keys.forEach {item.setValue(dict[$0], forKey: $0)}
             try realm.write {
+                if !dict.keys.contains("id") {
+                    item.id = (realm.objects(Task.self).max(ofProperty: "id") ?? 0) + 1
+                }
                 realm.add(item, update: true)
             }
             return .just(item)
@@ -46,8 +49,11 @@ struct TaskService: ServiceType {
     @discardableResult
     func update(_ item: Task, with dict: UnboxableDictionary) -> Observable<Task> {
         let result = withRealm("updating") { realm -> Observable<Task> in
+            print(dict)
             try realm.write {
-                dict.keys.forEach {item.setValue(dict[$0], forKey: $0)}
+                for key in dict.keys {
+                    item.setValue(dict[key], forKey: key)
+                }
             }
             return .just(item)
         }

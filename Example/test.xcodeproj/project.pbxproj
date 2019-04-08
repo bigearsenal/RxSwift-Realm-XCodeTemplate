@@ -32,6 +32,8 @@
 		3B1DE736225A125400D3A17E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B1DE735225A125400D3A17E /* Assets.xcassets */; };
 		3B1DE739225A125400D3A17E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1DE737225A125400D3A17E /* LaunchScreen.storyboard */; };
 		3B1DE744225A125400D3A17E /* testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1DE743225A125400D3A17E /* testTests.swift */; };
+		3BD18681225B510400B63823 /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD18680225B510400B63823 /* EditTaskViewModel.swift */; };
+		3BD18685225B549400B63823 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD18684225B549400B63823 /* EditTaskViewController.swift */; };
 		4196171BB40BDE118C87E2EA /* Pods_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD3B856E5ECC71FDD7B42E0 /* Pods_test.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		3B1DE73F225A125400D3A17E /* testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1DE743225A125400D3A17E /* testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTests.swift; sourceTree = "<group>"; };
 		3B1DE745225A125500D3A17E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BD18680225B510400B63823 /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
+		3BD18684225B549400B63823 /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditTaskViewController.swift; path = Controllers/EditTaskViewController.swift; sourceTree = "<group>"; };
 		463FBF7DDD977CAC1EF3A86F /* Pods-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.release.xcconfig"; path = "Target Support Files/Pods-test/Pods-test.release.xcconfig"; sourceTree = "<group>"; };
 		73FF5DBDEE45B367517986C7 /* Pods-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.debug.xcconfig"; path = "Target Support Files/Pods-test/Pods-test.debug.xcconfig"; sourceTree = "<group>"; };
 		DAD3B856E5ECC71FDD7B42E0 /* Pods_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +183,8 @@
 				3B01FF87225A12C70052BC5C /* TasksTableViewController.swift */,
 				3B01FF84225A12C70052BC5C /* TasksViewModel.swift */,
 				3B1DE712225A125400D3A17E /* BindableType.swift */,
+				3BD18680225B510400B63823 /* EditTaskViewModel.swift */,
+				3BD18684225B549400B63823 /* EditTaskViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -424,6 +430,8 @@
 				3B1DE716225A125400D3A17E /* ServiceType.swift in Sources */,
 				3B01FF89225A12C70052BC5C /* Task.swift in Sources */,
 				3B1DE721225A125400D3A17E /* SceneTransitionType.swift in Sources */,
+				3BD18681225B510400B63823 /* EditTaskViewModel.swift in Sources */,
+				3BD18685225B549400B63823 /* EditTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

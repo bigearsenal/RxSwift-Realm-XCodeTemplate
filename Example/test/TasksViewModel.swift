@@ -44,22 +44,21 @@ class TasksViewModel: ItemsViewModel<Task> {
         }
     }
     
-//    func onCreate() -> CocoaAction {
-//        return CocoaAction { _ in
-//            return self.service
-//                .create([:])
-//                .flatMap { item -> Observable<Void> in
-//                    #warning("Create EditViewModel and navigate to edit scene")
-////                    let editViewModel = EditTaskViewModel(task: task,
-////                                                          coordinator: self.sceneCoordinator,
-////                                                          updateAction: self.onUpdateTitle(task: task),
-////                                                          cancelAction: self.onDelete(task: task))
-////                    return self.sceneCoordinator
-////                        .transition(to: Scene.editTask(editViewModel), type: .modal)
-////                        .asObservable().map { _ in }
-//                }
-//        }
-//    }
+    func onCreate() -> CocoaAction {
+        return CocoaAction { _ in
+            return self.service
+                .create(["title": ""])
+                .flatMap { item -> Observable<Void> in
+                    let editViewModel = EditTaskViewModel(task: item,
+                                                          coordinator: self.sceneCoordinator,
+                                                          updateAction: self.onUpdate(item: item),
+                                                          cancelAction: self.onDelete(item: item))
+                    return self.sceneCoordinator
+                        .transition(to: Scene.editTask(editViewModel), type: .modal)
+                        .asObservable().map { _ in }
+                }
+        }
+    }
     
     func onToggle(item: Task) -> CocoaAction {
         return CocoaAction {
@@ -79,17 +78,16 @@ class TasksViewModel: ItemsViewModel<Task> {
         }
     }
     
-//    lazy var editAction: Action<Task, Swift.Never> = { this in
-//        return Action { item in
-//            #warning("navigate to EditItemVC")
-////            let editViewModel = EditTaskViewModel(
-////                task: task,
-////                coordinator: this.sceneCoordinator,
-////                updateAction: this.onUpdateTitle(task: task)
-////            )
-////            return this.sceneCoordinator
-////                .transition(to: Scene.editTask(editViewModel), type: .modal)
-////                .asObservable()
-//        }
-//    }(self)
+    lazy var editAction: Action<Task, Swift.Never> = { this in
+        return Action { item in
+            let editViewModel = EditTaskViewModel(
+                task: item,
+                coordinator: this.sceneCoordinator,
+                updateAction: this.onUpdate(item: item)
+            )
+            return this.sceneCoordinator
+                .transition(to: Scene.editTask(editViewModel), type: .modal)
+                .asObservable()
+        }
+    }(self)
 }
