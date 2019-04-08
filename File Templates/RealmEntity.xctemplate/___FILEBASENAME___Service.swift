@@ -22,6 +22,9 @@ struct ___VARIABLE_entityName___Service: ServiceType {
             let item = try ___VARIABLE_entityName___(unboxer: Unboxer(dictionary: dict))
             
             try realm.write {
+                if !dict.keys.contains("id") {
+                    item.id = (realm.objects(Task.self).max(ofProperty: "id") ?? 0) + 1
+                }
                 realm.add(item, update: true)
             }
             return .just(item)
