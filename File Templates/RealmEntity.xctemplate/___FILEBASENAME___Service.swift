@@ -19,12 +19,14 @@ struct ___VARIABLE_entityName___Service: ServiceType {
     @discardableResult
     func create(_ dict: UnboxableDictionary) -> Observable<___VARIABLE_entityName___> {
         let result = withRealm("creating") { realm -> Observable<___VARIABLE_entityName___> in
-            let item = try ___VARIABLE_entityName___(unboxer: Unboxer(dictionary: dict))
+            var modifiedDict = dict
+            if !modifiedDict.keys.contains("id") {
+                modifiedDict["id"] = (realm.objects(___VARIABLE_entityName___.self).max(ofProperty: "id") ?? 0) + 1
+            }
+            
+            let item = try ___VARIABLE_entityName___(unboxer: Unboxer(dictionary: modifiedDict))
             
             try realm.write {
-                if !dict.keys.contains("id") {
-                    item.id = (realm.objects(Task.self).max(ofProperty: "id") ?? 0) + 1
-                }
                 realm.add(item, update: true)
             }
             return .just(item)
