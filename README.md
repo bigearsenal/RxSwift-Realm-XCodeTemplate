@@ -23,15 +23,17 @@ Inspired by the book "Reactive Programming with Swift" by the raywenderlich.com 
 You got a Realm Entity, a EntityService for CRUD, a Entity(s)ViewModel and a Entity(s)TableViewController
 ### 1.3 Edit Entity and its properties, it's mock objects (see Examples)
 ### 1.4 Edit EntityService and add helpers method if needed
-## 2. Design TablesViewController and Cells in storyboard
-## 3. Edit sectionedItems in Entity(s)ViewModel
-## 4. configure dataSources in Entity(s)TableViewController
-## 5. Add Scene
-### 5.1 edit Scene.swift
-### 5.2 inititalize Scene + ViewController
-## 6. Kick-off first Scene in AppDelegate.swift
-## 7. (Optional) add EditEntity by using BindableVVM template
-### 7.1 Navigate to File > New > File... and choose the template BindableVVM
+## 2. Design TableViewController and Cells in storyboard
+## 3. Add ListViewModel & ListViewController using ListVVM Template
+## 4. Link TableViewController and Cells
+## 5. Edit sectionedItems in Entity(s)ViewModel
+## 6. configure dataSources in Entity(s)TableViewController
+## 7. Add Scene
+### 7.1 edit Scene.swift
+### 7.2 inititalize Scene + ViewController
+## 8. Kick-off first Scene in AppDelegate.swift
+## 9. (Optional) add EditEntity by using BindableVVM template
+### 9.1 Navigate to File > New > File... and choose the template BindableVVM
 You got 2 file Edit<Entity>ViewController and Edit<Entity>ViewModel for Edit<Entity>Scene
-### 7.2 Design Edit<Entity>VC in Storyboard
-### 7.3 Edit Edit<Entity>ViewModel
+### 9.2 Design Edit<Entity>VC in Storyboard
+### 9.3 Edit Edit<Entity>ViewModel
