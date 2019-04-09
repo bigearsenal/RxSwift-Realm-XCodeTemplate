@@ -14,7 +14,7 @@ import Unbox
 
 class ItemsFetcher<T> where T: Unboxable, T: Mockable {
     enum FetcherError: Error {
-        case createRequestFailed, requestFailed, canceled, requestDupplicated
+        case createRequestFailed, requestFailed
     }
     
     // MARK: - Init
@@ -41,7 +41,7 @@ class ItemsFetcher<T> where T: Unboxable, T: Mockable {
     func requestNext(mock: Bool = false) -> Single<[T]> {
         // check if request is dupplicated
         if self.isFetching || self.reachedTheEnd {
-            return Single.error(FetcherError.requestDupplicated)
+            return Single.never()
         }
         
         // mark as fetching

@@ -55,11 +55,7 @@ class ItemsViewModel<T> where T: Object, T: IdentifiableType, T: Mockable {
                     self.save(newItems)
                     completable(.completed)
                 }, onError: { (error) in
-                    if error == ItemsFetcher<T>.FetcherError.canceled {
-                        completable(.completed)
-                    } else {
-                        completable(.error(error))
-                    }
+                    completable(.error(error))
                 })
                 .disposed(by: self.bag)
             return disposable
