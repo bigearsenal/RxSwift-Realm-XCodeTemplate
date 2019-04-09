@@ -2,7 +2,7 @@
 //  TaskService.swift
 //  test
 //
-//  Created by Chung Tran on 07/04/2019.
+//  Created by Chung Tran on 09/04/2019.
 //  Copyright (c) 2019 Chung Tran. All rights reserved.
 //
 
@@ -22,13 +22,17 @@ struct TaskService: ServiceType {
     @discardableResult
     func create(_ dict: UnboxableDictionary) -> Observable<Task> {
         let result = withRealm("creating") { realm -> Observable<Task> in
-            let item = Task()
-            dict.keys.forEach {item.setValue(dict[$0], forKey: $0)}
+            
+            var modifiedDict = dict
+            if !modifiedDict.keys.contains("id") {
+                modifiedDict["id"] = (realm.objects(Task.self).max(ofProperty: "id") ?? 0) + 1
+            }
+            
+            let item = try Task(unboxer: Unboxer(dictionary: modifiedDict))
+            
             try realm.write {
-                if !dict.keys.contains("id") {
-                    item.id = (realm.objects(Task.self).max(ofProperty: "id") ?? 0) + 1
-                }
                 realm.add(item, update: true)
+                print(item)
             }
             return .just(item)
         }
@@ -49,11 +53,8 @@ struct TaskService: ServiceType {
     @discardableResult
     func update(_ item: Task, with dict: UnboxableDictionary) -> Observable<Task> {
         let result = withRealm("updating") { realm -> Observable<Task> in
-            print(dict)
             try realm.write {
-                for key in dict.keys {
-                    item.setValue(dict[key], forKey: key)
-                }
+                dict.keys.forEach {item.setValue(dict[$0], forKey: $0)}
             }
             return .just(item)
         }
@@ -61,8 +62,8 @@ struct TaskService: ServiceType {
     }
     
     @discardableResult
-    func toggle(item: Task) -> Observable<Task> {
-        let result = withRealm("toggling") { realm -> Observable<Task> in
+    func toggleChecked(_ item: Task) -> Observable<Task> {
+        let result = withRealm("toggleChecked") { realm -> Observable<Task> in
             try realm.write {
                 if item.checked == nil {
                     item.checked = Date()

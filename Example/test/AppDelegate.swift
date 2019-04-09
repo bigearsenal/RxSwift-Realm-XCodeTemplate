@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  test
 //
-//  Created by Chung Tran on 07/04/2019.
+//  Created by Chung Tran on 09/04/2019.
 //  Copyright © 2019 Chung Tran. All rights reserved.
 //
 
@@ -16,12 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        let coordinator = SceneCoordinator(window: window!)
-        
+        // Kick-off first screen
         let service = TaskService()
+        let coordinator = SceneCoordinator(window: window!)
         let tasksViewModel = TasksViewModel(router: "", sceneCoordinator: coordinator, service: service)
-        
         let firstScene = Scene.tasks(tasksViewModel)
         coordinator.transition(to: firstScene, type: .root)
         

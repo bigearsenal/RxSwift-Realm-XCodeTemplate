@@ -2,7 +2,7 @@
 //  TasksViewModel.swift
 //  test
 //
-//  Created by Chung Tran on 07/04/2019.
+//  Created by Chung Tran on 09/04/2019.
 //  Copyright (c) 2019 Chung Tran. All rights reserved.
 //
 
@@ -32,14 +32,14 @@ class TasksViewModel: ItemsViewModel<Task> {
                 let dueTasks = results
                     .filter("checked == nil")
                     .sorted(byKeyPath: "added", ascending: false)
-
+                
                 let doneTasks = results
                     .filter("checked != nil")
                     .sorted(byKeyPath: "checked", ascending: false)
-
+                
                 return [
-                    TaskSection(model: "Due Tasks", items: dueTasks.toArray()),
-                    TaskSection(model: "Done Tasks", items: doneTasks.toArray())
+                    TaskSection(model: "Due tasks", items: dueTasks.toArray()),
+                    TaskSection(model: "Done tasks", items: doneTasks.toArray())
                 ]
         }
     }
@@ -60,12 +60,6 @@ class TasksViewModel: ItemsViewModel<Task> {
         }
     }
     
-    func onToggle(item: Task) -> CocoaAction {
-        return CocoaAction {
-            return self.service.toggle(item: item).map { _ in }
-        }
-    }
-    
     func onUpdate(item: Task) -> Action<UnboxableDictionary, Void> {
         return Action { dict in
             return self.service.update(item, with: dict).map {_ in}
@@ -75,6 +69,12 @@ class TasksViewModel: ItemsViewModel<Task> {
     func onDelete(item: Task) -> CocoaAction {
         return CocoaAction {
             return self.service.delete(item)
+        }
+    }
+    
+    func onToggleChecked(_ item: Task) -> CocoaAction {
+        return CocoaAction {
+            return self.service.toggleChecked(item).map {_ in}
         }
     }
     

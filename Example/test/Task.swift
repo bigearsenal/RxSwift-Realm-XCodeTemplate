@@ -2,15 +2,16 @@
 //  Task.swift
 //  test
 //
-//  Created by Chung Tran on 07/04/2019.
+//  Created by Chung Tran on 09/04/2019.
 //  Copyright (c) 2019 Chung Tran. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
+import Unbox
 import RxDataSources
 
-final class Task: Object, Mockable {
+class Task: Object, Unboxable, Mockable {
     // MARK: - Object
     @objc dynamic var id: Int = 0
     @objc dynamic var title: String = ""
@@ -21,17 +22,19 @@ final class Task: Object, Mockable {
         return "id"
     }
     
+    // MARK: - Unboxable
+    convenience required init(unboxer: Unboxer) throws {
+        self.init()
+        id = try unboxer.unbox(key: "id")
+        title = try unboxer.unbox(key: "title")
+    }
+    
     // MARK: - Mockobject
     static func createMockingObjects() {
         let service = TaskService()
-        
-        ["Chapter 5: Filtering operators",
-         "Chapter 4: Observables and Subjects in practice",
-         "Chapter 3: Subjects",
-         "Chapter 2: Observables",
-         "Chapter 1: Hello, RxSwift"].enumerated().forEach {
-            service.create(["title": $1, "id": $0])
-        }
+        ["chap1","chap2","chap3","chap4","chap5"]
+            .enumerated()
+            .forEach {service.create(["title": $1, "id": $0])}
     }
 }
 
