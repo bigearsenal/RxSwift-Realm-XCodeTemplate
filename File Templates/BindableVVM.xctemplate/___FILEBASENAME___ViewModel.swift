@@ -6,12 +6,11 @@
 //  Copyright (c) ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import RxSwift
+import Action
 
-class ___VARIABLE_sceneName___Router {
-    weak var viewController: ___VARIABLE_sceneName___ViewController?
 
-    func navigateToSomewhere() {
-        
-    }
+struct ___VARIABLE_entityName___ViewModel {
+    let bag = DisposeBag()
 }

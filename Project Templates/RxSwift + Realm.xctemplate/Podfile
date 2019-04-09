@@ -1,0 +1,27 @@
+# platform :ios, '12.1'
+
+project '___PROJECTNAME___'
+
+target '___PROJECTNAME___' do
+	use_frameworks!
+	# pod for ___PROJECTNAME___
+	pod 'RxSwift'
+	pod 'RxCocoa'
+	pod 'RealmSwift'
+	pod 'RxRealm'
+	pod 'Unbox'
+	pod 'Action'
+	pod 'Alamofire'
+	pod 'RxDataSources'
+	pod 'JGProgressHUD'
+
+	# target '___PROJECTNAME___Tests' do
+    	# inherit! :search_paths
+    	# Pods for testing
+  	# end
+
+  	# target '___PROJECTNAME___UITests' do
+    	# inherit! :search_paths
+    	# Pods for testing
+  	# end
+end

@@ -10,19 +10,24 @@ import Foundation
 import RealmSwift
 import RxSwift
 import RxRealm
+import Unbox
 
 struct ___VARIABLE_entityName___Service: ServiceType {
     init() {
         // Create service
     }
     @discardableResult
-    func create(_ dict: AnyObject) -> Observable<___VARIABLE_entityName___> {
+    func create(_ dict: UnboxableDictionary) -> Observable<___VARIABLE_entityName___> {
         let result = withRealm("creating") { realm -> Observable<___VARIABLE_entityName___> in
-            let item = ___VARIABLE_entityName___()
-            #warning("add code to create item and remove this line")
+            var modifiedDict = dict
+            if !modifiedDict.keys.contains("id") {
+                modifiedDict["id"] = (realm.objects(___VARIABLE_entityName___.self).max(ofProperty: "id") ?? 0) + 1
+            }
+            
+            let item = try ___VARIABLE_entityName___(unboxer: Unboxer(dictionary: modifiedDict))
             
             try realm.write {
-                realm.add(item)
+                realm.add(item, update: true)
             }
             return .just(item)
         }
@@ -31,7 +36,7 @@ struct ___VARIABLE_entityName___Service: ServiceType {
     
     @discardableResult
     func delete(_ item: ___VARIABLE_entityName___) -> Observable<Void> {
-        let result = withRealm("deleting") { realm-> Observable<Void> in
+        let result = withRealm("deleting") { realm -> Observable<Void> in
             try realm.write {
                 realm.delete(item)
             }
@@ -41,21 +46,21 @@ struct ___VARIABLE_entityName___Service: ServiceType {
     }
     
     @discardableResult
-    func update(_ item: ___VARIABLE_entityName___, with dict: AnyObject) -> Observable<___VARIABLE_entityName___> {
+    func update(_ item: ___VARIABLE_entityName___, with dict: UnboxableDictionary) -> Observable<___VARIABLE_entityName___> {
         let result = withRealm("updating") { realm -> Observable<___VARIABLE_entityName___> in
             try realm.write {
-                #warning("add code to update item and remove this line")
+                dict.keys.forEach {item.setValue(dict[$0], forKey: $0)}
             }
             return .just(item)
         }
         return result ?? .error(ServiceError<___VARIABLE_entityName___>.updateFailed(item))
     }
     
-    func list(predicate: NSPredicate? = nil) -> Observable<(AnyRealmCollection<___VARIABLE_entityName___>, RealmChangeset?)> {
-        let result = withRealm("getting") { realm -> Observable<(AnyRealmCollection<___VARIABLE_entityName___>, RealmChangeset?)> in
+    func list(predicate: NSPredicate? = nil) -> Observable<Results<___VARIABLE_entityName___>> {
+        let result = withRealm("getting") { realm -> Observable<Results<___VARIABLE_entityName___>> in
             var query = realm.objects(___VARIABLE_entityName___.self)
             if let predicate = predicate {query = query.filter(predicate)}
-            return Observable.changeset(from: query).share()
+            return Observable.collection(from: query)
         }
         return result ?? .empty()
     }

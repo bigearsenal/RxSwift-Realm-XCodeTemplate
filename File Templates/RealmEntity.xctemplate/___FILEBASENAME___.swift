@@ -8,11 +8,31 @@
 
 import Foundation
 import RealmSwift
+import Unbox
+import RxDataSources
 
-class ___VARIABLE_entityName___: Object {
-    @objc dynamic var id: Int32 = 0
+class ___VARIABLE_entityName___: Object, Unboxable, Mockable {
+    // MARK: - Object
+    @objc dynamic var id: Int = 0
 
     override class func primaryKey() -> String? {
         return "id"
+    }
+    
+    // MARK: - Unboxable
+    convenience required init(unboxer: Unboxer) throws {
+        self.init()
+        #warning("Implement init with unboxer and remove this line")
+    }
+    
+    // MARK: - Mockobject
+    static func createMockingObjects() {
+        #warning("Add mocking objects here")
+    }
+}
+
+extension ___VARIABLE_entityName___: IdentifiableType {
+    var identity: Int {
+        return self.isInvalidated ? 0 : id
     }
 }

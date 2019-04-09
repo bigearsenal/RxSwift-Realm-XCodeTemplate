@@ -25,14 +25,20 @@ import UIKit
 extension Scene {
     func viewController() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var nc: UINavigationController
         switch self {
             #warning("add code to create scene here")
-//        case .tasks(let viewModel):
-//            let nc = storyboard.instantiateViewController(withIdentifier: "Tasks") as! UINavigationController
-//            var vc = nc.viewControllers.first as! TasksViewController
-//            vc.bindViewModel(to: viewModel)
-//            return nc
+//        case .itemsList(let viewModel):
+//            nc = storyboard.instantiateViewController(withIdentifier: <#T##String#>) as! UINavigationController
+//            var vc = nc.viewControllers.first as! <#T##UIViewController#>
+//            vc.bind(with: viewModel)
+//        case .editItem(let viewModel):
+//            nc = storyboard.instantiateViewController(withIdentifier: <#T##String#>) as! UINavigationController
+//            var vc = nc.viewControllers.first as! <#T##UIViewController#>
+//            vc.bind(with: viewModel)
         }
+        
+        return nc
     }
 }
 

@@ -3,20 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>DefaultCompletionName</key>
-	<string>ViewController</string>
+	<string>Entity</string>
 	<key>Description</key>
-	<string>The view controller for a scene</string>
+	<string>An RealmEntity with Service implemented</string>
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>Options</key>
 	<array>
 		<dict>
 			<key>Description</key>
-			<string>The name of the scene that the view controller belongs to</string>
+			<string>The name of the entity</string>
 			<key>Identifier</key>
-			<string>sceneName</string>
+			<string>entityName</string>
 			<key>Name</key>
-			<string>Scene Name:</string>
+			<string>EntityName Name:</string>
 			<key>NotPersisted</key>
 			<true/>
 			<key>Required</key>
@@ -26,21 +26,13 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___</string>
-			<key>Identifier</key>
-			<string>productName</string>
-			<key>Type</key>
-			<string>static</string>
-		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___ViewController</string>
+			<string>___VARIABLE_entityName:identifier___Service</string>
 			<key>Description</key>
-			<string>The view controller name</string>
+			<string>The service name</string>
 			<key>Identifier</key>
-			<string>viewControllerName</string>
+			<string>serviceName</string>
 			<key>Name</key>
-			<string>ViewController Name:</string>
+			<string>Service Name:</string>
 			<key>Required</key>
 			<true/>
 			<key>Type</key>
@@ -52,8 +44,8 @@
 		<string>com.apple.platform.iphoneos</string>
 	</array>
 	<key>SortOrder</key>
-	<string>4</string>
+	<string>10</string>
 	<key>Summary</key>
-	<string>The view controller for a scene</string>
+	<string>A scene with view controller, view model, router and builder</string>
 </dict>
 </plist>
