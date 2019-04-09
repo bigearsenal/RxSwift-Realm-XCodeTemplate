@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>DefaultCompletionName</key>
-	<string>Entity</string>
+	<string>List</string>
 	<key>Description</key>
-	<string>An RealmEntity with Service implemented</string>
+	<string>ViewModel with ViewController for a showing a list</string>
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>Options</key>
@@ -26,13 +26,27 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_entityName:identifier___Service</string>
+			<string>___VARIABLE_entityName:identifier___sViewModel</string>
 			<key>Description</key>
-			<string>The service name</string>
+			<string>The ViewModel name</string>
 			<key>Identifier</key>
-			<string>serviceName</string>
+			<string>viewModelName</string>
 			<key>Name</key>
-			<string>Service Name:</string>
+			<string>ViewModel Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_entityName:identifier___sViewController</string>
+			<key>Description</key>
+			<string>The ViewController name</string>
+			<key>Identifier</key>
+			<string>viewControllerName</string>
+			<key>Name</key>
+			<string>ViewController Name:</string>
 			<key>Required</key>
 			<true/>
 			<key>Type</key>
@@ -46,6 +60,6 @@
 	<key>SortOrder</key>
 	<string>10</string>
 	<key>Summary</key>
-	<string>A Realm Model with Service for CRUD implemented</string>
+	<string>A scene with view controller, view model for list</string>
 </dict>
 </plist>
